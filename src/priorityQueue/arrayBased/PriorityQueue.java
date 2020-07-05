@@ -14,18 +14,39 @@ public class PriorityQueue<K, V> {
         this.capacity = capacity;
     }
 
+    /**
+     * isEmpty Method
+     * @return True if size == 0
+     */
     public boolean isEmpty(){
         return this.size == 0;
     }
 
+    /**
+     * isFull Method
+     * @return False since LLPQueue can never be full
+     */
     public boolean isFull(){
         return this.size == this.capacity;
     }
 
+    /**
+     * enqueue Base Method
+     * calls this method if user does not pass in the priority of the element
+     * sets default priority to 9
+     * calls overloaded enqueue Method
+     * @param value
+     */
     public void enqueue(V value){
-        enqueue(9, value);
+        enqueue(10, value);
     }
 
+    /**
+     * enqueue Overloaded Method
+     * adds element to the pQueue based on the priority (key) of the element
+     * @param key
+     * @param value
+     */
     public void enqueue(int key, V value){
         if(isFull()) System.out.println("Queue is Full");
         else if(this.front == -1){
@@ -48,6 +69,12 @@ public class PriorityQueue<K, V> {
         this.size++;
     }
 
+    /**
+     * insertMid Method
+     * inserts Key, Value into the middle of the Keys, and Values Array while shifting other elements
+     * @param key
+     * @param value
+     */
     private void insertMid(int key, V value){
         int i;
         for(i = this.rear; i >= this.front; i--){
@@ -62,6 +89,11 @@ public class PriorityQueue<K, V> {
         this.rear++;
     }
 
+    /**
+     * dequeue Method
+     * removed and returns the element with the highest priority
+     * @return value of the element with the highest priority
+     */
     public V dequeue(){
         if(isEmpty()){ 
             System.out.println("Queue is Empty");
@@ -77,6 +109,11 @@ public class PriorityQueue<K, V> {
         }
     }
 
+    /**
+     * peek Method
+     * returns but does not remove the element with the highest priority
+     * @return this.first.value
+     */
     public V peek(){
         if(isEmpty()){ 
             System.out.println("Queue is Empty");
@@ -87,19 +124,23 @@ public class PriorityQueue<K, V> {
         }
     }
 
+    /**
+     * getSize Method
+     * @return the current size of the Queue
+     */
     public int getSzie(){
         return this.size;
     }
 
+    /**
+     * display Method
+     * prints each element of the Queue from first to last
+     */
     public void display(){
         System.out.print("Front -> ");
         for(int i = this.front; i != (rear + 1); i = (i+1) % this.capacity){
             System.out.print("{"+ this.Keys[i] + ":" + this.Values[i] + "}, ");
         }
         System.out.println("<- Rear");
-    }
-
-    public int compareTo(String o) {
-        return this.compareTo(o);
     }
 }
