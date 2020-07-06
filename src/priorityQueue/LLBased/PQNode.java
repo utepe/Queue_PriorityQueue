@@ -11,20 +11,10 @@ public class PQNode<K, V> implements Comparable<PQNode<K, V>>{
         this.next = null;
     }
 
-    public PQNode(String i, V value) {
-        this.key = (K) i;
-        this.value = value;
-        this.next = null;
-	}
-
 	@Override
     public int compareTo(PQNode<K, V> o) {
-        String o1 = this.toString();
-        String o2 = o.toString();
-        return o1.compareTo(o2);
-    }
-
-    public String toString(){
-        return key.toString();
+        int o1 = Integer.parseInt(this.key.toString());
+        int o2 = Integer.parseInt(o.key.toString());
+        return o1-o2;
     }
 }

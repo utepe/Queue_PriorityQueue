@@ -13,6 +13,7 @@ public class LLPQMain {
         LLPQ.dequeue();
         LLPQ.display();
         LLPQ.enqueue(3, "JSON");
+        LLPQ.enqueue("C#");
         LLPQ.display();
 
         LLPriorityQueue<Integer, Character> LLPQ2 = new LLPriorityQueue<Integer, Character>();
