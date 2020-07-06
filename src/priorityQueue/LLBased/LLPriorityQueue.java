@@ -33,8 +33,6 @@ public class LLPriorityQueue<K, V> {
      * calls overloaded enqueue Method
      * @param value
      */
-
-    //TODO: 
     public void enqueue(V value){
         enqueue((K)(Integer) 10, value);
     }
