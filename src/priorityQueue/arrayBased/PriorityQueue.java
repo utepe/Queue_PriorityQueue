@@ -109,6 +109,21 @@ public class PriorityQueue<K, V> {
         }
     }
 
+    public V removeMid(){
+    if(isEmpty()) return null;
+    int i;
+    int deletingPos = size/2; //trying to delete the element at size/2 
+    V deletingValue = Values[deletingPos];
+    //traverse to the array and shift all elements over
+    for(i = deletingPos; i < this.rear; i++) {
+        Values[i]  = Values[i+1];
+        Keys[i] = Keys[i+1];
+    }
+    this.rear--;
+    size -= 1;
+    return deletingValue;
+    }
+
     /**
      * peek Method
      * returns but does not remove the element with the highest priority
